@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET and POST Request Demo</title>
+</head>
+<body>
+<h1>GET and POST Request Demo</h1>
+
+<!-- GET 请求表单 -->
+<form action="/tommcatty" method="get">
+    <h2>Send a GET Request</h2>
+    <label for="number1">Number 1:</label>
+    <input type="text" id="number1" name="number1">
+    <span> + </span>
+    <label for="number2">Number 2:</label>
+    <input type="text" id="number2" name="number2">
+    <span> = </span>
+    <button type="submit">Calculate</button>
+</form>
+
+<!-- 分隔线 -->
+<hr>
+
+<!-- POST 请求表单 -->
+<form action="/tommcatty" method="post">
+    <h2>Send a POST Request</h2>
+    <!-- 添加任何你想要发送的数据 -->
+    <label for="data">Data:</label>
+    <input type="text" id="data" name="data">
+    <button type="submit">Send POST Request</button>
+</form>
+
+</body>
+</html>
