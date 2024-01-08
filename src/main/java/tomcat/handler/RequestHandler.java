@@ -36,12 +36,14 @@ public class RequestHandler implements Runnable{
 
             CattyResponse cattyResponse = new CattyResponse(socket.getOutputStream());
 
-            String resp = cattyResponse.respHeader +"<h1> Response <h1/>";
 
-            OutputStream outputStream = cattyResponse.getOutputStream();
-            outputStream.write(resp.getBytes());
-            outputStream.flush();
-            outputStream.close();
+
+//            String resp = cattyResponse.respHeader +"<h1> Response <h1/>";
+//
+//            OutputStream outputStream = cattyResponse.getOutputStream();
+//            outputStream.write(resp.getBytes());
+//            outputStream.flush();
+//            outputStream.close();
 
 //            String respHeader = "HTTP/1.1 200 OK\r\n" +
 //                    "Content-Type: text/html;charset=utf-8\r\n\r\n";
