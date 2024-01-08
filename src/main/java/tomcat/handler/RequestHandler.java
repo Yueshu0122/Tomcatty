@@ -2,6 +2,9 @@ package tomcat.handler;
 
 import tomcat.http.CattyRequest;
 import tomcat.http.CattyResponse;
+import tomcat.servlet.CattyHttpServelt;
+import tomcat.servlet.CattyRequestServlet;
+import tomcat.utils.Tomcat;
 
 import java.io.*;
 import java.net.Socket;
@@ -36,6 +39,21 @@ public class RequestHandler implements Runnable{
 
             CattyResponse cattyResponse = new CattyResponse(socket.getOutputStream());
 
+           // CattyRequestServlet cattyRequestServlet = new CattyRequestServlet();
+            //cattyRequestServlet.doGet(cattyRequest,cattyResponse);
+
+            String uri = cattyRequest.getUri();
+            String servletName = Tomcat.servletUrlMapping.get(uri);
+            CattyHttpServelt cattyHttpServelt = Tomcat.servletMapping.get(servletName);
+            if(cattyHttpServelt!=null){
+                cattyHttpServelt.service(cattyRequest,cattyResponse);
+            }else {
+                String resp = cattyResponse.respHeader +"<h1>404 Not Found</h1>";
+                OutputStream outputStream = cattyResponse.getOutputStream();
+                outputStream.write(resp.getBytes());
+                outputStream.flush();
+                outputStream.close();
+            }
 
 
 //            String resp = cattyResponse.respHeader +"<h1> Response <h1/>";
